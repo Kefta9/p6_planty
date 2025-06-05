@@ -3,8 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const mobileMenu = document.getElementById('ast-hf-mobile-menu');
 
     if (adminLink && mobileMenu) {
-        const clone = adminLink.cloneNode(true);
-        mobileMenu.insertBefore(clone, mobileMenu.children[1]);
+        // Vérifie si le lien admin est déjà présent dans le menu mobile
+        if (!mobileMenu.querySelector('.menu-admin')) {
+            const clone = adminLink.cloneNode(true);
+            mobileMenu.insertBefore(clone, mobileMenu.children[1]);
+        }
     }
 });
-// This script clones the admin link and inserts it into the mobile menu
