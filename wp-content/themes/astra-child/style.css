@@ -49,4 +49,8 @@
     .menu-admin {
         padding-left: 20px;
     }
+
+    .main-header-menu {
+        gap: 10px;
+    }
 }
