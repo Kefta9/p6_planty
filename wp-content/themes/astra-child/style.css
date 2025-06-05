@@ -5,3 +5,48 @@
  * Text Domain:	   astra-child
  * Description:    The Astra WordPress theme is lightning-fast and highly customizable. It has over 1 million downloads and the only theme in the world with 5,700+ five-star reviews! It’s ideal for professional web designers, solopreneurs, small businesses, eCommerce, membership sites and any type of website. It offers special features and templates so it works perfectly with all page builders like Spectra, Elementor, Beaver Builder, etc. Fast performance, clean code, mobile-first design and schema markup are all built-in, making the theme exceptionally SEO-friendly. It’s fully compatible with WooCommerce, SureCart and other eCommerce plugins and comes with lots of store-friendly features and templates. Astra also provides expert support for free users. A dedicated team of fully trained WordPress experts are on hand to help with every aspect of the theme. Try the live demo of Astra: https://zipwp.org/themes/astra/
  */
+
+
+/* Global Styles */
+
+:root {
+    --fond-principal: #ECE2DA;
+    --blanc: #FFFFFF;
+    --noir: #000000;
+    --vert: #3B8E46;
+
+    --cta-navbar: #DC9F96;
+    --cta-site: #E0B9B4;
+    --cta-hover: #C02E44;
+}
+
+/* Styles for the main header menu */
+
+.ast-container {
+    padding: 0;
+    max-width: none;
+}
+
+.main-header-menu {
+    gap: 30px;
+}
+
+.menu_commander a {
+    display: flex;
+    justify-content: center;
+    width: 230px;
+    color: var(--blanc)!important;
+    background-color: var(--cta-navbar);
+}
+
+.menu_commander a:hover {
+    color: var(--blanc)!important;
+    background-color: var(--cta-hover);
+    transition: background-color 0.8s ease;
+}
+
+@media (max-width: 921px) {
+    .menu-admin {
+        padding-left: 20px;
+    }
+}
