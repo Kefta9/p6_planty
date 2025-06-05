@@ -15,3 +15,31 @@ add_action( 'wp_enqueue_scripts', 'astra_child_style' );
  * Your code goes below.
  */
 
+add_filter( 'wp_nav_menu_items', 'ajouter_lien_admin', 10, 2 );
+
+function ajouter_lien_admin( $items, $args ) {
+    if ( $args->theme_location === 'primary' && is_user_logged_in() && current_user_can('administrator') ) {
+        
+        // Découpe les items à chaque </li> pour séparer les liens
+        $items_array = explode('</li>', $items);
+
+        // Nettoie chaque élément + réajoute </li> car explode l'enlève
+        foreach ( $items_array as &$item ) {
+            $item = trim($item);
+            if ( $item !== '' ) {
+                $item .= '</li>';
+            }
+        }
+
+        // Crée le lien Admin
+        $admin_link = '<li class="menu-item menu-admin"><a href="/wp-admin/">Admin</a></li>';
+
+        // Insère le lien en 2e position (0 car on ne retire rien)
+        array_splice( $items_array, 1, 0, $admin_link );
+
+        // Recolle tous les liens en une seule chaîne
+        $items = implode('', $items_array);
+    }
+
+    return $items;
+}
