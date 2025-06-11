@@ -18,10 +18,10 @@ add_action( 'wp_enqueue_scripts', 'astra_child_style' );
 
 add_filter( 'wp_nav_menu_items', 'ajouter_lien_admin', 10, 2 );
 
-function ajouter_lien_admin( $items, $args ) {
+function ajouter_lien_admin( $items, $args ) { // item = les éléments du menu, args = les arguments du menu (comme theme_location, l'id du menu, etc.)
     if ( $args->theme_location === 'primary' && is_user_logged_in() && current_user_can('administrator') ) {
         
-        // Découpe les items à chaque </li> pour séparer les liens
+        // Découpe les items à chaque </li> pour en faire un tableau
         $items_array = explode('</li>', $items);
 
         // Nettoie chaque élément + réajoute </li> car explode l'enlève
